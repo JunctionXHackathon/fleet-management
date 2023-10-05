@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* modal grid */
+.modal_container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+@media (max-width: 768px) {
+  .modal_container {
+    @apply flex flex-col
+  }
+}
+.battery { grid-area: 1 / 1 / 2 / 6; }
+.GPS { grid-area: 2 / 1 / 3 / 2; }
+.UAV { grid-area: 2 / 2 / 3 / 3; }
+
+/*buttons*/
+.btn {
+  @apply text-white py-2 px-6 font-semibold rounded-lg
+}
+.screenshot {
+  @apply bg-green-400
+}
+.record {
+  @apply bg-blue-400
+}
+.close {
+  @apply bg-red-400
+}
