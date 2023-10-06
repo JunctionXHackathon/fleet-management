@@ -11,6 +11,7 @@ interface modalProps {
 }
 
 export default function Modal({ id }: modalProps) {
+  
   const [selected, setSelected] = React.useState("photos");
 
   return (
