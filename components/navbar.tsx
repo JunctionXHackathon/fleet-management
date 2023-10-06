@@ -1,144 +1,81 @@
-import {
-	Navbar as NextUINavbar,
-	NavbarContent,
-	NavbarMenu,
-	NavbarMenuToggle,
-	NavbarBrand,
-	NavbarItem,
-	NavbarMenuItem,
-} from "@nextui-org/navbar";
-import { Button } from "@nextui-org/button";
-import { Kbd } from "@nextui-org/kbd";
-import { Link } from "@nextui-org/link";
-import { Input } from "@nextui-org/input";
-
-import { link as linkStyles } from "@nextui-org/theme";
-
-import { siteConfig } from "@/config/site";
-import NextLink from "next/link";
-import clsx from "clsx";
-
+"use client";
+import { useState } from "react";
 import { ThemeSwitch } from "@/components/theme-switch";
+import icon from "../assets/icon/icon.png";
+import logout from "../assets/icon/logout.png";
+import menu from "../assets/icon/menu.png";
+import down from "../assets/icon/down-arrow.png";
+import Image from "next/image";
+import { Button } from "@nextui-org/react";
 import {
-	TwitterIcon,
-	GithubIcon,
-	DiscordIcon,
-	HeartFilledIcon,
-	SearchIcon,
-} from "@/components/icons";
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+} from "@nextui-org/react";
+import Link from "next/link";
 
-import { Logo } from "@/components/icons";
 
-export const Navbar = () => {
-	const searchInput = (
-		<Input
-			aria-label="Search"
-			classNames={{
-				inputWrapper: "bg-default-100",
-				input: "text-sm",
-			}}
-			endContent={
-				<Kbd className="hidden lg:inline-block" keys={["command"]}>
-					K
-				</Kbd>
-			}
-			labelPlacement="outside"
-			placeholder="Search..."
-			startContent={
-				<SearchIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
-			}
-			type="search"
-		/>
-	);
+interface INavbar{
+        setIsAdd: (add: boolean) => void
+}
 
-	return (
-		<NextUINavbar maxWidth="xl" position="sticky">
-			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-				<NavbarBrand as="li" className="gap-3 max-w-fit">
-					<NextLink className="flex justify-start items-center gap-1" href="/">
-						<Logo />
-						<p className="font-bold text-inherit">ACME</p>
-					</NextLink>
-				</NavbarBrand>
-				<ul className="hidden lg:flex gap-4 justify-start ml-2">
-					{siteConfig.navItems.map((item) => (
-						<NavbarItem key={item.href}>
-							<NextLink
-								className={clsx(
-									linkStyles({ color: "foreground" }),
-									"data-[active=true]:text-primary data-[active=true]:font-medium"
-								)}
-								color="foreground"
-								href={item.href}
-							>
-								{item.label}
-							</NextLink>
-						</NavbarItem>
-					))}
-				</ul>
-			</NavbarContent>
+export const Navbar = ({setIsAdd}: INavbar) => {
+  // dummy login parameter
+  const [loggedIn, setLoggedIn] = useState(false);
+	// dummy regions
 
-			<NavbarContent
-				className="hidden sm:flex basis-1/5 sm:basis-full"
-				justify="end"
-			>
-				<NavbarItem className="hidden sm:flex gap-2">
-					<Link isExternal href={siteConfig.links.twitter} aria-label="Twitter">
-						<TwitterIcon className="text-default-500" />
-					</Link>
-					<Link isExternal href={siteConfig.links.discord} aria-label="Discord">
-						<DiscordIcon className="text-default-500" />
-					</Link>
-					<Link isExternal href={siteConfig.links.github} aria-label="Github">
-						<GithubIcon className="text-default-500" />
-					</Link>
-					<ThemeSwitch />
-				</NavbarItem>
-				<NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
-				<NavbarItem className="hidden md:flex">
-					<Button
-            isExternal
-						as={Link}
-						className="text-sm font-normal text-default-600 bg-default-100"
-						href={siteConfig.links.sponsor}
-						startContent={<HeartFilledIcon className="text-danger" />}
-						variant="flat"
-					>
-						Sponsor
-					</Button>
-				</NavbarItem>
-			</NavbarContent>
+	// handling responsive navbar
+	// handling menu
+  const [isMobile, setIsMobile] = useState(false)
+  function toggleMenu() {
+    setIsMobile(previous => !previous)
+  }
+  // to get the nav away when click a link
+  function removeMobileNav() {
+    setIsMobile(false)
+  }
 
-			<NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-				<Link isExternal href={siteConfig.links.github} aria-label="Github">
-					<GithubIcon className="text-default-500" />
-				</Link>
-				<ThemeSwitch />
-				<NavbarMenuToggle />
-			</NavbarContent>
+  // logout
+  function handleLogout() {
+    setLoggedIn(false)
+  }
 
-			<NavbarMenu>
-				{searchInput}
-				<div className="mx-4 mt-2 flex flex-col gap-2">
-					{siteConfig.navMenuItems.map((item, index) => (
-						<NavbarMenuItem key={`${item}-${index}`}>
-							<Link
-								color={
-									index === 2
-										? "primary"
-										: index === siteConfig.navMenuItems.length - 1
-										? "danger"
-										: "foreground"
-								}
-								href="#"
-								size="lg"
-							>
-								{item.label}
-							</Link>
-						</NavbarMenuItem>
-					))}
-				</div>
-			</NavbarMenu>
-		</NextUINavbar>
-	);
+  
+  return (
+    <div className="flex justify-between items-center py-4 px-8">
+      <Image src={icon} alt="icon" />
+      <div className={`flex gap-4 items-center navbar_links ${isMobile && 'mobile_nav'}`}>
+        {/* {!loggedIn ? (
+          <div className="flex flex-col md:flex-row gap-4">
+            <Link href='/login' className="btn auth" >Login</Link>
+            <Link href='/signup' className="btn auth" >Sign up</Link>
+          </div>
+        ) : ( */}
+          <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
+            <Dropdown className="btn auth">
+              <DropdownTrigger>
+                <Button className="btn auth text-2xl font-semibold md:text-base">
+                        <p> AREAS </p>
+                        <Image height={14} width={14} src={down} alt={""}></Image>
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu aria-label="Static Actions">
+                <DropdownItem key="add" onClick={removeMobileNav}> <button onClick={()=> {setIsAdd(true)}} >Add</button>  </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+            <button className="btn auth" onClick={removeMobileNav}>SETTINGS</button>
+            {/*<button className="btn auth" onClick={removeMobileNav}>USERNAME</button>*/}
+            <Image
+              className="h-[24px] w-[24px] cursor-pointer"
+              src={logout}
+              alt="logout"
+              onClick={handleLogout}
+            />
+          </div>
+        {/* )} */}
+      </div>
+			<Image alt="" src={menu} className="cursor-pointer flex md:hidden" onClick={toggleMenu}></Image>
+    </div>
+  );
 };
