@@ -63,7 +63,7 @@ body {
 
 .modal {
   background: linear-gradient(180deg, #000 0%, #0b0b18 48.44%);
-  @apply shadow-yellowish shadow-md;
+  box-shadow: 0 0 4px 4px rgba(255, 255, 0, 0.5);
 }
 
 /*buttons*/
