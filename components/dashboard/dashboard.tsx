@@ -1,7 +1,5 @@
 "use client"
-// import '@/mqtt-patch'; // First import
 import {Tables} from "@/lib/database.types";
-import * as mqtt from 'mqtt/dist/mqtt.min'
 import {useEffect, useState} from "react";
 import {socket} from "@/socket";
 import {IUAVPacket, IUAVPacketRx} from "@/types";
