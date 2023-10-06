@@ -23,7 +23,7 @@ export default function login() {
   return (
     <div className="signup flex gap-6 lg:flex-row flex-col-reverse items-center">
       <Image src={drone} className='drone'></Image>
-      <form className='mb-32 md:mb-0 login flex flex-col gap-2'>
+      <form className='mb-32 md:mb-0 login flex flex-col gap-2 min-w-[460px] lg:min-w-[360px]'>
         <p className='font-semibold text-5xl'> LOG IN </p>
         <br />
         <label>

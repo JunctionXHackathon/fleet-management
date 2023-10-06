@@ -100,3 +100,8 @@ label span {
     @apply mb-10
   }
 }
+@media (max-width:500px) {
+  .login {
+    @apply min-w-[225px]
+  }
+}
