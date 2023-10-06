@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
@@ -67,3 +69,4 @@ export const siteConfig = {
     sponsor: "https://patreon.com/jrgarciadev"
 	},
 };
+
