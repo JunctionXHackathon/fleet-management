@@ -43,7 +43,7 @@ export default function Stream() {
   }
 
   return (
-    <Card>
+    <Card className="modal">
       <CardBody className="flex flex-col gap-4">
         <iframe
           height="425"

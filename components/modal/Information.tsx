@@ -8,7 +8,7 @@ import UAV from "./UAV";
 
 export default function Details() {
   return (
-    <Card>
+    <Card className="modal">
       <CardBody className="modal_container md:gap-0 gap-4">
         <Battery />
         <GPS />

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.cdnfonts.com/css/aquire');
+@import url("https://fonts.cdnfonts.com/css/aquire");
 
 body:before {
   content: "";
@@ -12,50 +12,80 @@ body:before {
   right: 0;
   bottom: 0;
   z-index: -1;
-  background: linear-gradient(180deg, #000 0%, #0B0B18 48.44%);
+  background: linear-gradient(180deg, #000 0%, #0b0b18 48.44%);
 }
 
 body {
-  font-family: 'Aquire', sans-serif;
+  font-family: "Aquire", sans-serif;
   color: #fff;
-  background: linear-gradient(180deg, #000 0%, #0B0B18 48.44%);
+  background: linear-gradient(180deg, #000 0%, #0b0b18 48.44%);
 }
 
 /* modal grid */
 .modal_container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: 1fr 2fr;
+  color: white;
 }
 @media (max-width: 768px) {
   .modal_container {
-    @apply flex flex-col
+    @apply flex flex-col;
   }
 }
-.battery { grid-area: 1 / 1 / 2 / 6; }
-.GPS { grid-area: 2 / 1 / 3 / 2; }
-.UAV { grid-area: 2 / 2 / 3 / 3; }
+.battery {
+  grid-area: 1 / 1 / 2 / 3;
+  background: linear-gradient(
+    153deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.4) 51.04%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+}
+.GPS {
+  grid-area: 2 / 1 / 3 / 2;
+  background: linear-gradient(
+    153deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.4) 51.04%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+}
+.UAV {
+  grid-area: 2 / 2 / 3 / 3;
+  background: linear-gradient(
+    153deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.4) 51.04%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+}
+
+.modal {
+  background: linear-gradient(180deg, #000 0%, #0b0b18 48.44%);
+  @apply shadow-yellowish shadow-md;
+}
 
 /*buttons*/
 .btn {
-  @apply text-white py-2 px-6 font-semibold rounded-lg
+  @apply text-white py-2 px-6 font-semibold rounded-lg;
 }
 .screenshot {
-  @apply bg-green-400
+  @apply bg-green-400;
 }
 .record {
-  @apply bg-blue-400
+  @apply bg-blue-400;
 }
 .close {
-  @apply bg-red-400
+  @apply bg-red-400;
 }
 .auth {
-  @apply bg-yellowish text-black rounded-3xl font-medium
+  @apply bg-yellowish text-black rounded-3xl font-medium;
 }
 
 /*responsive navber*/
 .navbar_links {
-  @apply md:flex hidden
+  @apply md:flex hidden;
 }
 
 @media (max-width: 768px) {
@@ -63,16 +93,16 @@ body {
     @apply absolute md:fixed top-[76px] left-0 bg-[#010000d5] w-[100%] h-[90vh]
     justify-start items-start py-20 px-20 flex flex-col
     transition-all duration-300 ease-in-out text-2xl backdrop-blur-md ml-[-100%]
-    z-10
+    z-10;
   }
   .mobile_nav {
-    @apply ml-0
+    @apply ml-0;
   }
 }
 
 /*signup*/
 .signup {
-  background-image: url('../assets//background/wave-haikei.svg');
+  background-image: url("../assets//background/wave-haikei.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -81,27 +111,27 @@ body {
 
 @media (max-width: 1024px) {
   .signup {
-    background-image: url('../assets//background/wave-mobile.svg');
+    background-image: url("../assets//background/wave-mobile.svg");
   }
 }
 
 /*form inputs*/
 input {
-  @apply text-black py-1 px-4 rounded-full w-[100%]
+  @apply text-black py-1 px-4 rounded-full w-[100%];
 }
 label {
-  @apply flex flex-col gap-2
+  @apply flex flex-col gap-2;
 }
 label span {
-  @apply text-lg text-yellowish
+  @apply text-lg text-yellowish;
 }
-@media (min-width:480px) and (max-width:768px) {
+@media (min-width: 480px) and (max-width: 768px) {
   .login {
-    @apply mb-10
+    @apply mb-10;
   }
 }
-@media (max-width:500px) {
+@media (max-width: 500px) {
   .login {
-    @apply min-w-[225px]
+    @apply min-w-[225px];
   }
 }

@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { ThemeSwitch } from "@/components/theme-switch";
 import icon from "../assets/icon/icon.png";
 import logout from "../assets/icon/logout.png";
 import menu from "../assets/icon/menu.png";
@@ -44,7 +43,6 @@ export const Navbar = () => {
     <div className="flex justify-between items-center py-4 px-8">
       <Image src={icon} alt="icon" />
       <div className={`flex gap-4 items-center navbar_links ${isMobile && 'mobile_nav'}`}>
-        <ThemeSwitch />
         {!loggedIn ? (
           <div className="flex flex-col md:flex-row gap-4">
             <Link href='/login' className="btn auth" >Login</Link>
