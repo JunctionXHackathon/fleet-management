@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.cdnfonts.com/css/aquire');
+
+body:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, #000 0%, #0B0B18 48.44%);
+}
+
+body {
+  font-family: 'Aquire', sans-serif;
+  color: #fff;
+  background: linear-gradient(180deg, #000 0%, #0B0B18 48.44%);
+}
+
 /* modal grid */
 .modal_container {
   display: grid;
@@ -29,4 +48,24 @@
 }
 .close {
   @apply bg-red-400
+}
+.auth {
+  @apply bg-yellowish text-black rounded-3xl font-medium
+}
+
+/*responsive navber*/
+.navbar_links {
+  @apply md:flex hidden
+}
+
+@media (max-width: 768px) {
+  .navbar_links {
+    @apply absolute md:fixed top-[76px] left-0 bg-[#010000d5] w-[100%] h-[90vh]
+    justify-start items-start py-20 px-20 flex flex-col
+    transition-all duration-300 ease-in-out text-2xl backdrop-blur-md ml-[-100%]
+    z-10
+  }
+  .mobile_nav {
+    @apply ml-0
+  }
 }

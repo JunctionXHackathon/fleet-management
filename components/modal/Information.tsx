@@ -14,6 +14,10 @@ export default function Details() {
         <GPS />
         <UAV />     
       </CardBody>
+      <br />
+      <div className="flex justify-end relative bottom-6 right-6">
+        <button className="btn close">Return</button>
+      </div>
     </Card>
   );
 }
