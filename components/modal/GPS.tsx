@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import Image from "next/image";
+import gps from "../../assets/icon/gps.png";
+import satellite from "../../assets/icon/satellite.png";
+import location from "../../assets/icon/location.png";
 
 export default function GPS() {
   // dummy data
@@ -12,36 +16,56 @@ export default function GPS() {
   });
 
   return (
-    <div className="GPS flex flex-col gap-4 bg-gray-300 bg-opacity-50 md:m-4 p-6 rounded-xl">
-      <p className="font-bold text-lg"> GPS Data: </p>
-      <p>
-        {" "}
-        <span className="font-semibold"> GPS Fixation: </span>{" "}
-        {GPS.fixation ? "Yes" : "No"}{" "}
-      </p>
-      <p>
-        {" "}
-        <span className="font-semibold"> Number of Satellites: </span>{" "}
-        {GPS.satellitesNumber}{" "}
-      </p>
-      <p>
-        {" "}
-        <span className="font-semibold"> Latitude: </span> {GPS.latitude}{" "}
-      </p>
-      <p>
-        {" "}
-        <span className="font-semibold"> Longtitude: </span> {GPS.longtitude}{" "}
-      </p>
-      <p>
-        {" "}
-        <span className="font-semibold"> Absolute Altitude: </span>{" "}
-        {GPS.absAltitude}{" "}
-      </p>
-      <p>
-        {" "}
-        <span className="font-semibold"> Relative Altitude: </span>{" "}
-        {GPS.relAltitude}{" "}
-      </p>
+    <div className="GPS flex flex-col gap-4 bg-opacity-50 md:m-4 p-6 rounded-3xl">
+      <p className="font-bold text-xl"> GPS Data: </p>
+
+      <div className="flex gap-2 items-center">
+        <Image src={gps}></Image>
+        <p>
+          GPS Fixation:
+          <span className="font-semibold"> {GPS.fixation ? "Yes" : "No"} </span>
+        </p>
+      </div>
+
+      <div className="flex gap-2 items-center">
+        <Image src={satellite}></Image>
+        <p>
+          Number of Satellites:
+          <span className="font-semibold"> {GPS.satellitesNumber} </span>
+        </p>
+      </div>
+
+      <div className="flex gap-2 items-center">
+        <Image src={location}></Image>
+        <p>
+          Latitude:
+          <span className="font-semibold"> {GPS.latitude} </span>
+        </p>
+      </div>
+
+      <div className="flex gap-2 items-center">
+        <Image src={location}></Image>
+        <p>
+          Longtitude:
+          <span className="font-semibold"> {GPS.longtitude} </span>
+        </p>
+      </div>
+
+      <div className="flex gap-2 items-center">
+        <Image src={location}></Image>
+        <p>
+          Absolute Altitude:
+          <span className="font-semibold"> {GPS.absAltitude} </span>
+        </p>
+      </div>
+
+      <div className="flex gap-2 items-center">
+        <Image src={location}></Image>
+        <p>
+          Relative Altitude:
+          <span className="font-semibold"> {GPS.relAltitude} </span>
+        </p>
+      </div>
     </div>
   );
 }

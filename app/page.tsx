@@ -1,27 +1,44 @@
-"use client"
-import AddArea from "@/components/area/add.area";
-import { Navbar } from "@/components/navbar";
-import dynamic from "next/dynamic";
-import { useState } from "react";
+"use client";
 
+import { Link } from "@nextui-org/link";
+import localFont from "next/font/local";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import navbar from "../components/navbar";
+import mainDrone from '../assets/objects/mainDrone.png'
+
+const aquire = localFont({
+  src: "../public/fonts/Aquire.otf",
+  variable: "--font-aquire",
+});
 
 export default function Home() {
-        const [isAdd, setIsAdd] = useState(false);
-
-        const Map = dynamic(
-                () => import('@/components/map/map'), 
-                { ssr: false }
-              )
-
-        
   return (
-    <div className="dashboard">
-        <Navbar setIsAdd={setIsAdd}/>
-        {isAdd && <div className="w-full text-rose-500 grid grid-cols-12">
-                <p className="border border-rose-500 m-3 p-2 rounded-md col-end-11 col-span-4">Please choose two points on the map</p>
-        </div>}
-        <div className=" w-full h-[700px]">
-       <Map isAdd={isAdd} setIsAdd={setIsAdd} />
+    <div className={`${aquire.className}`}>
+      <navbar />
+      <div className="flex flex-col justify-center items-center text-center gap-10 pt-0 md:pt-10">
+        <motion.p className="font-semibold text-4xl md:text-7xl"
+					variants={{
+						hidden: {opacity: 0, y: -100},
+						visible: {opacity: 1, y: 0}
+					}}
+					initial='hidden'
+					animate='visible'
+					transition={{duration: 0.35, delay: 0.1}}
+				>
+					SPREAD YOUR WINGS
+				</motion.p>
+				<motion.div
+					variants={{
+						hidden: {opacity: 0, y: 100},
+						visible: {opacity: 1, y: 0}
+					}}
+					initial='hidden'
+					animate='visible'
+					transition={{duration: 0.35, delay: 0.1}}
+				>
+						<Image src={mainDrone}></Image>
+				</motion.div>
       </div>
     </div>
   );

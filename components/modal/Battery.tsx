@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Progress } from "@nextui-org/react";
+import Image from "next/image";
+import energy from '../../assets/icon/energy.png'
 
 
 export default function Battery() {
@@ -12,7 +14,7 @@ export default function Battery() {
   })
 
   return (
-    <div className="battery flex flex-col gap-4 bg-gray-300 bg-opacity-50 md:m-4 p-6 rounded-xl">
+    <div className="battery flex flex-col gap-4 md:m-4 p-6 rounded-3xl">
       <p className="font-bold text-xl"> Battery Information: </p>
       <Progress
         size="sm"
@@ -20,9 +22,9 @@ export default function Battery() {
         classNames={{
           base: "max-w-md",
           track: "drop-shadow-md border border-default",
-          indicator: "bg-gradient-to-r from-pink-500 to-yellow-500",
-          label: "tracking-wider font-medium text-default-600",
-          value: "text-foreground/60",
+          indicator: "bg-gradient-to-r from-red-500 to-yellowish",
+          label: "tracking-wider font-medium text-default-600 text-white",
+          value: "text-foreground/60 text-white",
         }}
         label="Level"
         value={battery.level}
@@ -30,14 +32,15 @@ export default function Battery() {
       />
 
       <p>
-        {" "}
-        <span className="font-semibold"> ID: </span> {battery.id}{" "}
+        ID: <span className="font-semibold"> {battery.id} </span>
       </p>
-      <p>
-        {" "}
-        <span className="font-semibold"> Power Supply: </span>{" "}
-        {battery.powerSupply ? "Yes" : "No"}{" "}
-      </p>
+      <div className="flex gap-2">
+        <Image src={energy}></Image>
+        <p>
+          Power Supply: <span className="font-semibold">
+          {battery.powerSupply ? "Yes" : "No"}</span>
+        </p>
+      </div>
     </div>
   );
 }
