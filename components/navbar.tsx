@@ -48,7 +48,7 @@ export const Navbar = () => {
             <Dropdown className="btn auth">
               <DropdownTrigger>
                 <Button className="btn auth text-2xl font-semibold md:text-base">
-									<p> REGION </p>
+									<p> AREAS </p>
 									<Image height={14} width={14} src={down}></Image>
 								</Button>
               </DropdownTrigger>
