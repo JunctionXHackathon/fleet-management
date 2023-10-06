@@ -13,13 +13,7 @@ interface IDashboardProps {
 }
 
 
-const mqttOptions: mqtt.IClientOptions = {
-  "host": "13.38.173.241",
-  "port": 1883,
-  "clientId": "icodegfx",
-  "username": "icodegfx",
-  "protocol": "mqtt"
-}
+
 
 
 export default function Dashboard({params: paramsProp, UAVs: UAVsProp, areas: areasProp}: IDashboardProps) {
@@ -84,26 +78,26 @@ export default function Dashboard({params: paramsProp, UAVs: UAVsProp, areas: ar
 
           const newPacket: IUAVPacket = {
             status: {
-              armed: true,
-              health: 1,
-              mav_msg: "dsf",
-              in_air: true,
-              state: 2,
-              fm: 1
+              armed: undefined,
+              health: undefined,
+              mav_msg: undefined,
+              in_air: undefined,
+              state: undefined,
+              fm: undefined
             },
             gps: {
-              abs: 12,
-              lat: 13,
-              lon: 12,
-              rel: 13,
-              fx: true,
-              ns: 12
+              abs: undefined,
+              lat: undefined,
+              lon: undefined,
+              rel: undefined,
+              fx: undefined,
+              ns: undefined
             },
             deviceTopic,
             battery: {
-              vl: 12,
-              id: 12,
-              pt: 1
+              vl: undefined,
+              id: undefined,
+              pt: undefined
             }
           }
 
