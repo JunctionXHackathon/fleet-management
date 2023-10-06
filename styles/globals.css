@@ -69,3 +69,34 @@ body {
     @apply ml-0
   }
 }
+
+/*signup*/
+.signup {
+  background-image: url('../assets//background/wave-haikei.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+}
+
+@media (max-width: 1024px) {
+  .signup {
+    background-image: url('../assets//background/wave-mobile.svg');
+  }
+}
+
+/*form inputs*/
+input {
+  @apply text-black py-1 px-4 rounded-full w-[100%]
+}
+label {
+  @apply flex flex-col gap-2
+}
+label span {
+  @apply text-lg text-yellowish
+}
+@media (min-width:480px) and (max-width:768px) {
+  .login {
+    @apply mb-10
+  }
+}

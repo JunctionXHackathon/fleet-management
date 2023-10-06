@@ -11,7 +11,7 @@ import { GithubIcon } from "@/components/icons";
 export default function Home() {
 	return (
 		<div>
-			MAP
+			map
 		</div>
 	);
 }

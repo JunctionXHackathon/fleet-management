@@ -1,10 +1,11 @@
 "use client";
+import { useState } from "react";
+import Link from "next/link";
 import { ThemeSwitch } from "@/components/theme-switch";
 import icon from "../assets/icon/icon.png";
 import logout from "../assets/icon/logout.png";
 import menu from "../assets/icon/menu.png";
 import down from "../assets/icon/down-arrow.png";
-import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@nextui-org/react";
 import {
@@ -18,7 +19,7 @@ import data from '../data/regions'
 
 export const Navbar = () => {
   // dummy login parameter
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
 	// dummy regions
 	const [regions, setRegions] = useState(data)
 
@@ -33,6 +34,12 @@ export const Navbar = () => {
     setIsMobile(false)
   }
 
+  // logout
+  function handleLogout() {
+    setLoggedIn(false)
+  }
+
+  
   return (
     <div className="flex justify-between items-center py-4 px-8">
       <Image src={icon} alt="icon" />
@@ -40,8 +47,8 @@ export const Navbar = () => {
         <ThemeSwitch />
         {!loggedIn ? (
           <div className="flex flex-col md:flex-row gap-4">
-            <button className="btn auth" onClick={removeMobileNav}>Login</button>
-            <button className="btn auth" onClick={removeMobileNav}>Sign up</button>
+            <Link href='/login' className="btn auth" >Login</Link>
+            <Link href='/signup' className="btn auth" >Sign up</Link>
           </div>
         ) : (
           <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
@@ -66,6 +73,7 @@ export const Navbar = () => {
               className="h-[24px] w-[24px] cursor-pointer"
               src={logout}
               alt="logout"
+              onClick={handleLogout}
             />
           </div>
         )}
