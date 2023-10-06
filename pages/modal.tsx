@@ -4,6 +4,7 @@ import React from "react";
 import { Tabs, Tab, Card, CardBody, CardHeader } from "@nextui-org/react";
 import Information from "../components/modal/Information";
 import Stream from "../components/modal/Stream";
+import MavLinkMessages from "@/components/modal/MavLinkMessages";
 import '../styles/globals.css'
 
 interface modalProps {
@@ -11,7 +12,7 @@ interface modalProps {
 }
 
 export default function Modal({ id }: modalProps) {
-  
+
   const [selected, setSelected] = React.useState("photos");
 
   return (
@@ -21,11 +22,14 @@ export default function Modal({ id }: modalProps) {
         selectedKey={selected}
         onSelectionChange={setSelected}
       >
-        <Tab key="photos" title="Information">
+        <Tab key="information" title="Information">
           <Information />
         </Tab>
-        <Tab key="music" title="Live-Stream">
+        <Tab key="video" title="Live-Stream">
           <Stream />
+        </Tab>
+        <Tab key="text" title="MAVLInk Messages">
+          <MavLinkMessages />
         </Tab>
       </Tabs>
       

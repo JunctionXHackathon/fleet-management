@@ -46,7 +46,6 @@ export const Navbar = () => {
         {!loggedIn ? (
           <div className="flex flex-col md:flex-row gap-4">
             <Link href='/login' className="btn auth" >Login</Link>
-            <Link href='/signup' className="btn auth" >Sign up</Link>
           </div>
         ) : (
           <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">

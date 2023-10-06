@@ -1,6 +1,5 @@
 import { Card, CardBody, CardHeader, user } from "@nextui-org/react";
-import html2canvas from "html2canvas";
-
+import Link from "next/link";
 export default function Stream() {
 
   // handle clicking the screenshot button
@@ -59,7 +58,7 @@ export default function Stream() {
           </button>
         </div>
         <div className="flex justify-end">
-          <button className="btn close">Return</button>
+          <Link href='/' className="btn close">Return</Link>
         </div>
       </CardBody>
     </Card>

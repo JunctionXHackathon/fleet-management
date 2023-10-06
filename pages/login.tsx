@@ -2,6 +2,7 @@ import '../styles/globals.css'
 import Image from 'next/image'
 import drone from '../assets/objects/drone.png'
 import { useState } from 'react'
+import Link from 'next/link'
 
 export default function login() {
 
@@ -35,8 +36,9 @@ export default function login() {
           <input type="password" name="password" placeholder='password' value={data.password} onChange={handleChange} />
         </label>
         <br />
-        <div className=''>
-          <button className='btn auth'>LOGIN</button>
+        <div className='flex gap-2'>
+          <button className='btn auth'> LOGIN </button>
+          <Link href='/' className='btn auth' > RETURN </Link>
         </div>
       </form>
     </div>
