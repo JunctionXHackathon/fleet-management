@@ -70,7 +70,38 @@ export interface IAreaUpdateParams extends IAreaAddParams, IAreaRemoveParams {
 }
 
 
-export interface Packet {
+
+export interface IUAVPacketRx {
+  deviceTopic: string;   // to identify UAV
+
+  battery?: {
+    id: number;
+    vl: number;
+    pt: number;
+  },
+
+  gps?: {
+    fx: boolean;
+    ns: number;
+    lat: number;
+    lon: number;
+    abs: number;
+    rel: number;
+  },
+
+  status?: {
+    in_air: boolean;
+    armed: boolean;
+    state: number;
+    mav_msg: string;
+    health: number;
+    fm: number;
+  }
+}
+
+export interface IUAVPacket {
+  deviceTopic: string;   // to identify UAV
+
   battery: {
     id: number;
     vl: number;
@@ -86,10 +117,12 @@ export interface Packet {
     rel: number;
   },
 
-  in_air: boolean;
-  armed: boolean;
-  state: number;
-  mav_msg: string;
-  health: number;
-  fm: number;
+  status: {
+    in_air: boolean;
+    armed: boolean;
+    state: number;
+    mav_msg: string;
+    health: number;
+    fm: number;
+  }
 }
