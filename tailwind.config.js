@@ -13,7 +13,10 @@ module.exports = {
       colors: {
         yellowish: '#FFF700',
         darkBlue: '#0B0B18'
-      }
+      },
+      fontFamily: {
+        aquire: ["var(--font-aquire)", "sans-serif"]
+      },
     },
   },
   darkMode: "class",

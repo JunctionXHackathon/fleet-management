@@ -15,10 +15,18 @@ import {
   DropdownItem,
 } from "@nextui-org/react";
 import data from '../data/regions'
+import localFont from 'next/font/local'
+
+const aquire = localFont({
+	src: '../public/fonts/Aquire.otf',
+	variable: '--font-aquire'
+})
+
 
 export const Navbar = () => {
   // dummy login parameter
   const [loggedIn, setLoggedIn] = useState(false);
+  const username = 'bugHeads'
 	// dummy regions
 	const [regions, setRegions] = useState(data)
 
@@ -40,8 +48,8 @@ export const Navbar = () => {
 
   
   return (
-    <div className="flex justify-between items-center py-4 px-8">
-      <Image src={icon} alt="icon" />
+    <div className={`${aquire.className} flex justify-between items-center py-4 px-8`}>
+      <Link href='/'><Image src={icon} alt="icon" /></Link>
       <div className={`flex gap-4 items-center navbar_links ${isMobile && 'mobile_nav'}`}>
         {!loggedIn ? (
           <div className="flex flex-col md:flex-row gap-4">
@@ -59,13 +67,13 @@ export const Navbar = () => {
               <DropdownMenu aria-label="Static Actions">
 								{regions.map(region => {
 									return (
-										<DropdownItem key={region.id} onClick={removeMobileNav}> {region.region} </DropdownItem>
+										<DropdownItem className={aquire.className} key={region.id} onClick={removeMobileNav}> {region.region} </DropdownItem>
 									)
 								})}
               </DropdownMenu>
             </Dropdown>
             <button className="btn auth" onClick={removeMobileNav}>SETTINGS</button>
-            <button className="btn auth" onClick={removeMobileNav}>USERNAME</button>
+            <p className="text-yellowish" onClick={removeMobileNav}> {username} </p>
             <Image
               className="h-[24px] w-[24px] cursor-pointer"
               src={logout}

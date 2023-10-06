@@ -21,7 +21,8 @@ export default function MavLinkMessages() {
   return (
     <Card className="modal">
       <CardBody className="flex flex-col gap-4">
-        <div className="battery flex flex-col gap-4 md:m-4 p-6 rounded-3xl text-white">
+        <div className="battery flex flex-col gap-4 md:m-4 p-6 rounded-3xl text-white
+          max-h-[500px] overflow-y-scroll">
         <p className="font-bold text-xl"> Recent Messages: </p>
           {
             messages.map((msg) => {

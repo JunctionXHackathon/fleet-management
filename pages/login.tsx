@@ -3,6 +3,12 @@ import Image from 'next/image'
 import drone from '../assets/objects/drone.png'
 import { useState } from 'react'
 import Link from 'next/link'
+import localFont from 'next/font/local'
+
+const aquire = localFont({
+	src: '../public/fonts/Aquire.otf',
+	variable: '--font-aquire'
+})
 
 export default function login() {
 
@@ -22,7 +28,7 @@ export default function login() {
   }
 
   return (
-    <div className="signup flex gap-6 lg:flex-row flex-col-reverse items-center">
+    <div className={`${aquire.className} signup flex gap-6 lg:flex-row flex-col-reverse items-center`}>
       <Image src={drone} className='drone'></Image>
       <form className='mb-32 md:mb-0 login flex flex-col gap-2 min-w-[460px] lg:min-w-[360px]'>
         <p className='font-semibold text-5xl'> LOG IN </p>
