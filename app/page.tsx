@@ -1,14 +1,28 @@
-import NextLink from "next/link";
-import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code"
-import { button as buttonStyles } from "@nextui-org/theme";
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
+"use client"
+import AddArea from "@/components/area/add.area";
+import { Navbar } from "@/components/navbar";
+import dynamic from "next/dynamic";
+import { useState } from "react";
+
 
 export default function Home() {
-	return (
-		<div>test</div>
-	);
+        const [isAdd, setIsAdd] = useState(false);
+
+        const Map = dynamic(
+                () => import('@/components/map/map'), 
+                { ssr: false }
+              )
+
+        
+  return (
+    <div className="dashboard">
+        <Navbar setIsAdd={setIsAdd}/>
+        {isAdd && <div className="w-full text-rose-500 grid grid-cols-12">
+                <p className="border border-rose-500 m-3 p-2 rounded-md col-end-11 col-span-4">Please choose two points on the map</p>
+        </div>}
+        <div className=" w-full h-[700px]">
+       <Map isAdd={isAdd} setIsAdd={setIsAdd} />
+      </div>
+    </div>
+  );
 }

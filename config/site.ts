@@ -1,8 +1,10 @@
+import { useState } from "react";
+
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-	name: "Next.js + NextUI",
-	description: "Make beautiful websites regardless of your design experience.",
+	name: "DronieZ",
+	description: "TRack drones more efficiently",
 	navItems: [
 		{
 			label: "Home",
@@ -67,3 +69,4 @@ export const siteConfig = {
     sponsor: "https://patreon.com/jrgarciadev"
 	},
 };
+
