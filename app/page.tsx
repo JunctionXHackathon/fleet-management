@@ -1,14 +1,22 @@
-import NextLink from "next/link";
-import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code"
-import { button as buttonStyles } from "@nextui-org/theme";
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
+import Dashboard from "@/components/dashboard/dashboard";
+import {fetchAreas} from "@/infrastructure/areas.infra";
+import {fetchUAVs} from "@/infrastructure/uavs.infra";
+import {fetchParams} from "@/infrastructure/params.infra";
+import MqttWrapper from "@/components/mqttWrapper/MqttWrapper";
 
-export default function Home() {
-	return (
-		<div>test</div>
-	);
+export default async function Home() {
+
+  // fetch broker data
+  // fetch UAVs
+  // fetch areas
+
+
+  const paramsData = await fetchParams();
+  const UAVsData = await fetchUAVs();
+  const areasData = await fetchAreas();
+
+
+  return (
+    <Dashboard params={paramsData.params} UAVs={UAVsData.UAVs} areas={areasData.areas}/>
+  );
 }
