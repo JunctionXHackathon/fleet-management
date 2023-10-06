@@ -35,7 +35,7 @@ export default function Battery() {
         ID: <span className="font-semibold"> {battery.id} </span>
       </p>
       <div className="flex gap-2">
-        <Image src={energy}></Image>
+        <Image alt={""} src={energy}/>
         <p>
           Power Supply: <span className="font-semibold">
           {battery.powerSupply ? "Yes" : "No"}</span>

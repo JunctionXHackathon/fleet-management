@@ -13,6 +13,7 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "@nextui-org/react";
+import Link from "next/link";
 
 
 interface INavbar{
@@ -64,7 +65,7 @@ export const Navbar = ({setIsAdd}: INavbar) => {
               </DropdownMenu>
             </Dropdown>
             <button className="btn auth" onClick={removeMobileNav}>SETTINGS</button>
-            <button className="btn auth" onClick={removeMobileNav}>USERNAME</button>
+            {/*<button className="btn auth" onClick={removeMobileNav}>USERNAME</button>*/}
             <Image
               className="h-[24px] w-[24px] cursor-pointer"
               src={logout}
