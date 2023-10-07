@@ -4,24 +4,10 @@ import Link from "next/link";
 
 interface Mav {
   onremove: () => void
+  mavMessage: any
 }
 
 export default function MavLinkMessages(props: Mav) {
-  // dummy
-  const [messages, setMessages] = useState([
-    {
-      id: 1,
-      message: "Hello there",
-    },
-    {
-      id: 2,
-      message: "Hello world, this is another message",
-    },
-    {
-      id: 3,
-      message: "One extra message from here",
-    },
-  ]);
   return (
     <Card className="modal">
       <CardBody className="flex flex-col gap-4">
@@ -30,14 +16,7 @@ export default function MavLinkMessages(props: Mav) {
           max-h-[500px] overflow-y-scroll"
         >
           <p className="font-bold text-xl"> Recent Messages: </p>
-          {messages.map((msg) => {
-            return (
-              <p className="text-md" key={msg.id}>
-                {" "}
-                - {msg.message}{" "}
-              </p>
-            );
-          })}
+          {props.mavMessage ? props.mavMessage : 'There are no messages to show'}
         </div>
         <div className="flex justify-end">
           <button className="btn close" onClick={props.onremove}>

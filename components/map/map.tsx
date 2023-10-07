@@ -12,6 +12,8 @@ import { Tables } from '@/lib/database.types';
 import { IUAVPacket } from '@/types';
 import MapInfo from './map.info';
 import MapFilter from './map.filter';
+import InfoModal from "@/components/modal/InfoModal";
+
 
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png").default,
@@ -85,6 +87,14 @@ export default function Map({setIsAdd, isAdd, areas, uavs, uavsData} : IMap) {
         return null;
         }
 
+  // show modal
+  const [isShown, setIsShown] = useState(false);
+  const [selectedUav, setSelectedUav] = useState(null)
+  // selecting
+  function handleMarkerClick(uav:any) {
+        setSelectedUav(uav)
+  }
+
   return (
         <>
         <MapInfo></MapInfo>
@@ -119,6 +129,12 @@ export default function Map({setIsAdd, isAdd, areas, uavs, uavsData} : IMap) {
                                 key={index}
                                 icon={uav.status.armed? armedIcon: markerIcon}
                                 position={[uav.gps.lat, uav.gps.lon]}
+                                eventHandlers={{
+                                  click: () => {
+                                    setIsShown(!isShown);
+                                    handleMarkerClick(uav)
+                                  },
+                                }}
                                 >
                                 <Tooltip sticky>{uav.status.armed} {uav.deviceTopic}</Tooltip>
                                 </Marker>
@@ -128,6 +144,11 @@ export default function Map({setIsAdd, isAdd, areas, uavs, uavsData} : IMap) {
                 })}
                 
     </MapContainer>
+    {isShown && (
+        <div className="absolute top-0 left-0 w-[100%] h-[100%] bg-[#0000006f] backdrop-blur-sm z-10">
+          <InfoModal uav={selectedUav} onRemove={() => setIsShown(false)} />
+        </div>
+      )}
     </>
   )
 }

@@ -16,9 +16,11 @@ const aquire = localFont({
 
 interface InfoModal {
   onRemove: () => void
+  uav: any
 }
 
 export default function InfoModal(props: InfoModal) {
+
   const [selected, setSelected] = React.useState("photos");
 
   return (
@@ -39,13 +41,13 @@ export default function InfoModal(props: InfoModal) {
           onSelectionChange={setSelected}
         >
           <Tab key="information" title="Information">
-            <Information onremove={props.onRemove} />
+            <Information uav={props.uav} onremove={props.onRemove} />
           </Tab>
           <Tab key="video" title="Live-Stream">
             <Stream onremove={props.onRemove} />
           </Tab>
           <Tab key="text" title="MAVLInk Messages">
-            <MavLinkMessages onremove={props.onRemove} />
+            <MavLinkMessages mavMessage={props.uav.status.mav_msg} onremove={props.onRemove} />
           </Tab>
         </Tabs>
       </motion.div>

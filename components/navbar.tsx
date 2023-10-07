@@ -51,6 +51,7 @@ export const Navbar = ({setIsAdd}: INavbar) => {
           </div>
         ) : ( */}
           <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
+          <Link href='/tracker' className="btn auth" onClick={removeMobileNav}>TRACKER</Link>
             <Dropdown className="btn auth">
               <DropdownTrigger>
                 <Button className="btn auth text-2xl font-semibold md:text-base">
