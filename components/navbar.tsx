@@ -23,7 +23,6 @@ interface INavbar{
 export const Navbar = ({setIsAdd}: INavbar) => {
   // dummy login parameter
   const [loggedIn, setLoggedIn] = useState(false);
-	// dummy regions
 
 	// handling responsive navbar
 	// handling menu
