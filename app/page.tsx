@@ -39,6 +39,7 @@ export default function Home() {
 				>
 						<Image src={mainDrone} alt={"sqd"}/>
 				</motion.div>
+				<Link href="/dashboard" className="btn auth"> GET STARTED </Link>
       </div>
     </div>
   );

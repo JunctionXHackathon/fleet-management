@@ -20,7 +20,7 @@ export default function GPS() {
       <p className="font-bold text-xl"> GPS Data: </p>
 
       <div className="flex gap-2 items-center">
-        <Image src={gps}></Image>
+        <Image alt="" src={gps}></Image>
         <p>
           GPS Fixation:
           <span className="font-semibold"> {GPS.fixation ? "Yes" : "No"} </span>
@@ -28,7 +28,7 @@ export default function GPS() {
       </div>
 
       <div className="flex gap-2 items-center">
-        <Image src={satellite}></Image>
+        <Image alt="" src={satellite}></Image>
         <p>
           Number of Satellites:
           <span className="font-semibold"> {GPS.satellitesNumber} </span>
@@ -36,7 +36,7 @@ export default function GPS() {
       </div>
 
       <div className="flex gap-2 items-center">
-        <Image src={location}></Image>
+        <Image alt="" src={location}></Image>
         <p>
           Latitude:
           <span className="font-semibold"> {GPS.latitude} </span>
@@ -44,7 +44,7 @@ export default function GPS() {
       </div>
 
       <div className="flex gap-2 items-center">
-        <Image src={location}></Image>
+        <Image alt="" src={location}></Image>
         <p>
           Longtitude:
           <span className="font-semibold"> {GPS.longtitude} </span>
@@ -52,7 +52,7 @@ export default function GPS() {
       </div>
 
       <div className="flex gap-2 items-center">
-        <Image src={location}></Image>
+        <Image alt="" src={location}></Image>
         <p>
           Absolute Altitude:
           <span className="font-semibold"> {GPS.absAltitude} </span>
@@ -60,7 +60,7 @@ export default function GPS() {
       </div>
 
       <div className="flex gap-2 items-center">
-        <Image src={location}></Image>
+        <Image alt="" src={location}></Image>
         <p>
           Relative Altitude:
           <span className="font-semibold"> {GPS.relAltitude} </span>

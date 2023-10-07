@@ -20,7 +20,7 @@ export default function UAV() {
     <div className="UAV flex flex-col gap-4 bg-opacity-50 md:m-4 p-6 rounded-3xl">
       <p className="font-bold text-xl"> UAV Status: </p>
       <div className="flex gap-2 items-center">
-        <Image src={uav}></Image>
+        <Image alt="" src={uav}></Image>
         <p>
           UAV is in Air:
           <span className="font-semibold">
@@ -30,21 +30,21 @@ export default function UAV() {
         </p>
       </div>
       <div className="flex gap-2 items-center">
-        <Image src={aim}></Image>
+        <Image alt="" src={aim}></Image>
         <p>
           UAV is Armed:
           <span className="font-semibold"> {UAV.armed ? "Yes" : "No"} </span>
         </p>
       </div>
       <div className="flex gap-2 items-center">
-        <Image src={health}></Image>
+        <Image alt="" src={health}></Image>
         <p>
           System Health Status:
           <span className="font-semibold"> {UAV.health} </span>
         </p>
       </div>
       <div className="flex gap-2 items-center">
-      <Image src={air}></Image>
+      <Image alt="" src={air}></Image>
         <p>
           Flight Mode:
           <span className="font-semibold"> {UAV.flightMode} </span>
