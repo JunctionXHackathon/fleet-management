@@ -5,16 +5,13 @@ import aim from "../../assets/icon/aim.png";
 import health from "../../assets/icon/health.png";
 import air from "../../assets/icon/air.png";
 
-export default function UAV() {
-  // dummy data
-  const [UAV, setUAV] = useState({
-    inFlight: true,
-    armed: false,
-    state: "working",
-    messages: "message1",
-    health: "good",
-    flightMode: "normal",
-  });
+interface IUAV {
+  status: any
+}
+
+export default function UAV(props: IUAV) {
+  
+  const {armed, fm, health, in_air, state} = props.status
 
   return (
     <div className="UAV flex flex-col gap-4 bg-opacity-50 md:m-4 p-6 rounded-3xl">
@@ -25,7 +22,7 @@ export default function UAV() {
           UAV is in Air:
           <span className="font-semibold">
             {" "}
-            {UAV.flightMode ? "Yes" : "No"}{" "}
+            {in_air ? "Yes" : "No"}{" "}
           </span>
         </p>
       </div>
@@ -33,21 +30,27 @@ export default function UAV() {
         <Image alt="" src={aim}></Image>
         <p>
           UAV is Armed:
-          <span className="font-semibold"> {UAV.armed ? "Yes" : "No"} </span>
+          <span className="font-semibold"> {armed ? "Yes" : "No"} </span>
         </p>
       </div>
       <div className="flex gap-2 items-center">
         <Image alt="" src={health}></Image>
         <p>
           System Health Status:
-          <span className="font-semibold"> {UAV.health} </span>
+          <span className="font-semibold"> {health ? health : 'unrecorded'} </span>
         </p>
       </div>
       <div className="flex gap-2 items-center">
       <Image alt="" src={air}></Image>
         <p>
           Flight Mode:
-          <span className="font-semibold"> {UAV.flightMode} </span>
+          <span className="font-semibold"> {fm ? fm : 'unrecorded'} </span>
+        </p>
+      </div>
+      <div className="flex gap-2 items-center">
+        <p>
+          State:
+          <span className="font-semibold"> {state ? state : 'unrecorded'} </span>
         </p>
       </div>
     </div>

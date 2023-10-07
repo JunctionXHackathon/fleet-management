@@ -9,15 +9,19 @@ import UAV from "./UAV";
 
 interface Info {
   onremove: () => void;
+  uav: any
 }
 
 export default function Details(props: Info) {
+  
+  const {battery, deviceTopic, gps, status} = props.uav
+
   return (
     <Card className="modal">
       <CardBody className="modal_container md:gap-0 gap-4">
-        <Battery />
-        <GPS />
-        <UAV />
+        <Battery battery={battery} />
+        <GPS gps={gps} />
+        <UAV status={status} />
       </CardBody>
       <br />
       <div className="flex justify-end relative bottom-6 right-6">

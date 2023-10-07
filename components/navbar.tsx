@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/router";
 import icon from "../assets/icon/icon.png";
 import logout from "../assets/icon/logout.png";
 import menu from "../assets/icon/menu.png";
@@ -39,6 +40,9 @@ export const Navbar = ({setIsAdd}: INavbar) => {
     setLoggedIn(false)
   }
 
+  const pathname = window.location.pathname;
+  const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+  const isDashborad = filename === 'dashboard'
   
   return (
     <div className="flex justify-between items-center py-4 px-8">
@@ -51,17 +55,21 @@ export const Navbar = ({setIsAdd}: INavbar) => {
           </div>
         ) : ( */}
           <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
+          <Link href='/tracker' className="btn auth" onClick={removeMobileNav}>TRACKER</Link>
+            {isDashborad ? 
             <Dropdown className="btn auth">
-              <DropdownTrigger>
-                <Button className="btn auth text-2xl font-semibold md:text-base">
-                        <p> AREAS </p>
-                        <Image height={14} width={14} src={down} alt={""}></Image>
-                </Button>
-              </DropdownTrigger>
-              <DropdownMenu aria-label="Static Actions">
-                <DropdownItem key="add" onClick={removeMobileNav}> <button onClick={()=> {setIsAdd(true)}} >Add</button>  </DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
+            <DropdownTrigger>
+              <Button className="btn auth text-2xl font-semibold md:text-base">
+                      <p> AREAS </p>
+                      <Image height={14} width={14} src={down} alt={""}></Image>
+              </Button>
+            </DropdownTrigger>
+            <DropdownMenu aria-label="Static Actions">
+              <DropdownItem key="add" onClick={removeMobileNav}> <button onClick={()=> {setIsAdd(true)}} >Add</button>  </DropdownItem>
+            </DropdownMenu>
+          </Dropdown> : 
+          <Link className="btn auth" href='/dashboard'> DASHBOARD </Link>
+          }
             <Link href='/settings' className="btn auth" onClick={removeMobileNav}>SETTINGS</Link>
             {/*<button className="btn auth" onClick={removeMobileNav}>USERNAME</button>*/}
             <Image

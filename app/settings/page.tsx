@@ -9,6 +9,7 @@ import { UAVS } from "@/components/settings/data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Navbar } from "@/components/navbar";
+import Link from "next/link";
 
 interface Params{
         mqtt_host: string,
@@ -82,19 +83,6 @@ getUAVData();
                 </CardHeader>
                 <Divider/>
                 <CardBody className="gap-4">
-                <div className="flex flex-col gap-4 p-4">
-                        <p className="text-md text-gray-300">BOKER</p>
-                        <div className="flex flex-col">
-                        <div className="flex gap-4">
-                                <p className="text-base text-default-500">Host:</p>
-                                <p className="text-base">{params?.mqtt_host}</p>
-                        </div>
-                        <div className="flex gap-4">
-                                <p className="text-base text-default-500">Port:</p>
-                                <p className="text-base">{params?.mqtt_port}</p>
-                        </div>
-                        </div>
-                </div>
                 <Divider /> 
                 <TableUAV uavs={uavs} setUAVS={setUAVS} setUavData={setUavData} setIsModalOpen={setIsModalOpen}/>
 
