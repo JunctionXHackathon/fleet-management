@@ -19,12 +19,12 @@ body:before {
 }
 
 body {
-  font-family: aquire;
+  /*font-family: aquire;*/
   color: #fff;
   background: linear-gradient(180deg, #000 0%, #090935 48.44%);
 }
 html {
-  font-family: 'aquire';
+  /*font-family: 'aquire';*/
 }
 
 /* modal grid */

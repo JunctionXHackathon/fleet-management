@@ -66,6 +66,9 @@ export default function Map({setIsAdd, isAdd, areas, uavs, uavsData} : IMap) {
 
         const [bounds, setBounds] = useState<number[][]>([]);
 
+        const rec: Rectangles[] = [];
+        const [rectangles, setRectangles] = useState<Rectangles[]>([]);
+
         const markerIcon = icon({
                 iconUrl: "/markerIcon.png",
                 iconSize: [35, 43],
@@ -99,8 +102,8 @@ export default function Map({setIsAdd, isAdd, areas, uavs, uavsData} : IMap) {
         <>
         <MapInfo></MapInfo>
         <MapFilter filters={filters} setFilters={setFilters}></MapFilter>
-   <AddArea isAdd={isAdd} setIsAdd={setIsAdd} bounds={bounds} setBounds={setBounds}></AddArea>
-    <MapContainer className='h-[90%] z-0 w-full' center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+   <AddArea isAdd={isAdd} setIsAdd={setIsAdd} setRectangles={setRectangles} rectangles={rectangles} bounds={bounds} setBounds={setBounds}></AddArea>
+    <MapContainer className='h-full z-0 w-full' center={[-23.967,15.47]} zoom={7} scrollWheelZoom={false}>
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

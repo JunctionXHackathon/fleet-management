@@ -135,7 +135,7 @@ export default function Dashboard({params: paramsProp, UAVs: UAVsProp, areas: ar
   {isAdd && <div className="w-full text-rose-500 grid grid-cols-12">
       <p className="border border-rose-500 m-3 p-2 rounded-md col-end-11 col-span-4">Please choose two points on the map</p>
   </div>}
-  <div className=" w-full h-[700px]">
+  <div className=" w-full h-screen">
     <Map areas={areas} uavs={UAVs} uavsData={uavsData} isAdd={isAdd} setIsAdd={setIsAdd} />
   </div>
 </div>

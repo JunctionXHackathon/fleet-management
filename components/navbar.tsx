@@ -40,7 +40,11 @@ export const Navbar = ({setIsAdd}: INavbar) => {
     setLoggedIn(false)
   }
 
-  const pathname = window.location.pathname;
+  const router = useRouter();
+
+
+
+  const pathname = router.pathname;
   const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
   const isDashborad = filename === 'dashboard'
   
