@@ -1,28 +1,22 @@
-"use client"
-import AddArea from "@/components/area/add.area";
-import { Navbar } from "@/components/navbar";
-import dynamic from "next/dynamic";
-import { useState } from "react";
+import Dashboard from "@/components/dashboard/dashboard";
+import {fetchAreas} from "@/infrastructure/areas.infra";
+import {fetchUAVs} from "@/infrastructure/uavs.infra";
+import {fetchParams} from "@/infrastructure/params.infra";
+import MqttWrapper from "@/components/mqttWrapper/MqttWrapper";
+
+export default async function Home() {
+
+  // fetch broker data
+  // fetch UAVs
+  // fetch areas
 
 
-export default function Home() {
-  const [isAdd, setIsAdd] = useState(false);
-
-  const Map = dynamic(
-    () => import('@/components/map/map'),
-    { ssr: false }
-  )
+  const paramsData = await fetchParams();
+  const UAVsData = await fetchUAVs();
+  const areasData = await fetchAreas();
 
 
   return (
-    <div className="dashboard">
-      <Navbar setIsAdd={setIsAdd}/>
-      {isAdd && <div className="w-full text-rose-500 grid grid-cols-12">
-          <p className="border border-rose-500 m-3 p-2 rounded-md col-end-11 col-span-4">Please choose two points on the map</p>
-      </div>}
-      <div className=" w-full h-[700px]">
-        <Map isAdd={isAdd} setIsAdd={setIsAdd} />
-      </div>
-    </div>
+    <Dashboard params={paramsData.params} UAVs={UAVsData.UAVs} areas={areasData.areas}/>
   );
 }

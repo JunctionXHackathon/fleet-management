@@ -3,8 +3,13 @@ import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
+import { Montserrat } from "next/font/google";
 import clsx from "clsx";
 
+const montserrat = Montserrat({
+        variable: "--font-montserrat",
+        subsets: ["latin"]
+      })
 
 export const metadata: Metadata = {
 	title: {
@@ -33,8 +38,8 @@ export default function RootLayout({
 			<head />
 			<body
 				className={clsx(
-					"min-h-screen bg-background font-sans antialiased",
-					fontSans.variable
+					"min-h-screen bg-background antialiased",
+					 montserrat.variable
 				)}
 			>
                                 <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>

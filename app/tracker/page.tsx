@@ -9,11 +9,8 @@ import { UAVS } from "@/components/settings/data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Navbar } from "@/components/navbar";
+import TrackerModal from "@/components/tracker/tracker.modal";
 
-interface Params{
-        mqtt_host: string,
-        mqtt_port: number
-}
 
 export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -77,30 +74,15 @@ getUAVData();
             <Card className="w-full p-5">
                 <CardHeader className="flex gap-3">
                         <div className="flex flex-col">
-                        <p className="text-lg">Settings</p>
+                        <p className="text-lg">UAVs</p>
                         </div>
                 </CardHeader>
                 <Divider/>
                 <CardBody className="gap-4">
-                <div className="flex flex-col gap-4 p-4">
-                        <p className="text-md text-gray-300">BOKER</p>
-                        <div className="flex flex-col">
-                        <div className="flex gap-4">
-                                <p className="text-base text-default-500">Host:</p>
-                                <p className="text-base">{params?.mqtt_host}</p>
-                        </div>
-                        <div className="flex gap-4">
-                                <p className="text-base text-default-500">Port:</p>
-                                <p className="text-base">{params?.mqtt_port}</p>
-                        </div>
-                        </div>
-                </div>
-                <Divider /> 
                 <TableUAV uavs={uavs} setUAVS={setUAVS} setUavData={setUavData} setIsModalOpen={setIsModalOpen}/>
 
                 <div className="add-btn w-1/4 flex items-end">
-                        <ModalUAV setUAVS={setUAVS} isModalOpen={isModalOpen} uavData={uavData} setUavData={setUavData} setIsModalOpen={setIsModalOpen}/>
-                        <Button className="bg-[#FFF700] text-black" startContent={<FontAwesomeIcon icon={faPlus} />} onClick={()=> {setUavData(initialUAV); setIsModalOpen(true)}}>Create</Button>
+                        <TrackerModal setUAVS={setUAVS} isModalOpen={isModalOpen} uavData={uavData} setUavData={setUavData} setIsModalOpen={setIsModalOpen}/>
                 </div>
                 
                 

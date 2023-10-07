@@ -15,7 +15,8 @@ module.exports = {
         darkBlue: '#0B0B18'
       },
       fontFamily: {
-        aquire: ["var(--font-aquire)", "sans-serif"]
+        aquire: ["var(--font-aquire)", "sans-serif"],
+        montserrat: ["var(--font-montserrat)", "sans"],
       },
     },
   },
