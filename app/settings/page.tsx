@@ -100,7 +100,8 @@ getUAVData();
 
                 <div className="add-btn w-1/4 flex items-end">
                         <ModalUAV setUAVS={setUAVS} isModalOpen={isModalOpen} uavData={uavData} setUavData={setUavData} setIsModalOpen={setIsModalOpen}/>
-                        <Button className="bg-[#FFF700] text-black" startContent={<FontAwesomeIcon icon={faPlus} />} onClick={()=> {setUavData(initialUAV); setIsModalOpen(true)}}>Create</Button>
+                        <Button className="btn auth" startContent={<FontAwesomeIcon icon={faPlus} />} onClick={()=> {setUavData(initialUAV); setIsModalOpen(true)}}>Create</Button>
+                        <Link href="/dashboard" className="btn auth ml-2">Return</Link>
                 </div>
                 
                 

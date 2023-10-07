@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div className={`${aquire.className}`}>
       <Navbar setIsAdd={()=>{}} />
-      <div className="flex flex-col justify-center items-center text-center gap-10 pt-0 md:pt-10">
+      <div className="flex flex-col justify-center items-center text-center gap-10 pt-24 md:pt-10">
         <motion.p className="font-semibold text-4xl md:text-7xl"
 					variants={{
 						hidden: {opacity: 0, y: -100},
@@ -26,7 +26,7 @@ export default function Home() {
 					animate='visible'
 					transition={{duration: 0.35, delay: 0.1}}
 				>
-					SPREAD YOUR WINGS
+						SPREAD YOUR WINGS
 				</motion.p>
 				<motion.div
 					variants={{
@@ -39,6 +39,7 @@ export default function Home() {
 				>
 						<Image src={mainDrone} alt={"sqd"}/>
 				</motion.div>
+				<Link href="/dashboard" className="btn auth"> GET STARTED </Link>
       </div>
     </div>
   );

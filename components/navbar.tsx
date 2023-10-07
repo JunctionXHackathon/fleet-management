@@ -22,7 +22,6 @@ interface INavbar{
 export const Navbar = ({setIsAdd}: INavbar) => {
   // dummy login parameter
   const [loggedIn, setLoggedIn] = useState(false);
-	// dummy regions
 
 	// handling responsive navbar
 	// handling menu
@@ -63,7 +62,7 @@ export const Navbar = ({setIsAdd}: INavbar) => {
                 <DropdownItem key="add" onClick={removeMobileNav}> <button onClick={()=> {setIsAdd(true)}} >Add</button>  </DropdownItem>
               </DropdownMenu>
             </Dropdown>
-            <button className="btn auth" onClick={removeMobileNav}>SETTINGS</button>
+            <Link href='/settings' className="btn auth" onClick={removeMobileNav}>SETTINGS</Link>
             {/*<button className="btn auth" onClick={removeMobileNav}>USERNAME</button>*/}
             <Image
               className="h-[24px] w-[24px] cursor-pointer"
