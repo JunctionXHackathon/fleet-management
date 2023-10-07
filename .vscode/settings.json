@@ -1,3 +1,7 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "deno.enable": true,
+  "deno.lint": true,
+  "deno.unstable": true,
+  "deno.importMap": "./supabase/functions/import_map.json"
 }

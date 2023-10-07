@@ -1,6 +1,11 @@
 import { Card, CardBody, CardHeader, user } from "@nextui-org/react";
 import Link from "next/link";
-export default function Stream() {
+
+interface Str {
+  onremove: () => void;
+}
+
+export default function Stream(props: Str) {
   return (
     <Card className="modal">
       <CardBody className="flex flex-col gap-4">
@@ -10,7 +15,9 @@ export default function Stream() {
           allowFullScreen
         ></iframe>
         <div className="flex justify-end">
-          <Link href='/' className="btn close">Return</Link>
+          <button className="btn close" onClick={props.onremove}>
+            CLOSE
+          </button>
         </div>
       </CardBody>
     </Card>
