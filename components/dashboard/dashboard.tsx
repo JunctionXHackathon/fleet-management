@@ -1,8 +1,11 @@
 "use client"
 import {Tables} from "@/lib/database.types";
-import {useEffect, useState} from "react";
+import {useEffect, useMemo, useState} from "react";
 import {socket} from "@/socket";
 import {IUAVPacket, IUAVPacketRx} from "@/types";
+import { Navbar } from "@/components/navbar";
+import dynamic from "next/dynamic";
+
 
 interface IDashboardProps {
   params: Tables<"params"> | undefined;
@@ -15,6 +18,14 @@ interface IDashboardProps {
 
 
 export default function Dashboard({params: paramsProp, UAVs: UAVsProp, areas: areasProp}: IDashboardProps) {
+
+   const [isAdd, setIsAdd] = useState(false);
+
+
+   const Map = useMemo(() => dynamic(
+        () => import('@/components/map/map'),
+        { ssr: false }
+      ), [])
 
   const [isConnected, setIsConnected] = useState(socket.connected);
 
@@ -35,7 +46,6 @@ export default function Dashboard({params: paramsProp, UAVs: UAVsProp, areas: ar
     }
 
     function onMsgEvent(packet: IUAVPacketRx) {
-      // console.log(value)
 
       // check if UAV with same /topic exists
       // if it exists, override it with new data
@@ -48,13 +58,12 @@ export default function Dashboard({params: paramsProp, UAVs: UAVsProp, areas: ar
         const index = copyPrev.findIndex(currentPacket => currentPacket.deviceTopic === packet.deviceTopic)
 
         if (!packet.deviceTopic) {
-          console.log(packet)
+          
         }
 
-        console.log(index)
+       
 
         if (index >= 0) {
-          // console.log("index", index)
           const currUavData = copyPrev[index]
 
           // copyPrev[index] = {...currUavData, ...packet}
@@ -121,5 +130,13 @@ export default function Dashboard({params: paramsProp, UAVs: UAVsProp, areas: ar
   }, []);
 
 
-  return <div>test</div>
+  return  <div className="dashboard">
+  <Navbar setIsAdd={setIsAdd}/>
+  {isAdd && <div className="w-full text-rose-500 grid grid-cols-12">
+      <p className="border border-rose-500 m-3 p-2 rounded-md col-end-11 col-span-4">Please choose two points on the map</p>
+  </div>}
+  <div className=" w-full h-[700px]">
+    <Map areas={areas} uavs={UAVs} uavsData={uavsData} isAdd={isAdd} setIsAdd={setIsAdd} />
+  </div>
+</div>
 }

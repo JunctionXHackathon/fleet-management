@@ -123,7 +123,7 @@ html {
 
 /*form inputs*/
 input {
-  @apply text-black py-1 px-4 rounded-full w-[100%];
+  @apply py-1 px-4 rounded-full w-[100%];
 }
 label {
   @apply flex flex-col gap-2;

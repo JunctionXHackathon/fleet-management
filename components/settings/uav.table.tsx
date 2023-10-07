@@ -11,16 +11,14 @@ import {
   getKeyValue,
 } from "@nextui-org/react";
 import { UAVS } from "./data";
-import supabase from "@/supabase";
 
 interface ITableUAV {
   uavs: UAVS[];
-  setUAVS: (uav: UAVS[]) => void;
   setIsModalOpen: (set: boolean) => void;
   setUavData: (uav: UAVS) => void;
 }
 
-export default function TableUAV({ setIsModalOpen, setUavData, uavs,  setUAVS}: ITableUAV) {
+export default function TableUAV({ setIsModalOpen, setUavData, uavs}: ITableUAV) {
 
 
   const [page, setPage] = React.useState(1);

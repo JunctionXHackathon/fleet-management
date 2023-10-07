@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { ThemeSwitch } from "@/components/theme-switch";
 import icon from "../assets/icon/icon.png";
 import logout from "../assets/icon/logout.png";
 import menu from "../assets/icon/menu.png";
@@ -75,7 +74,7 @@ export const Navbar = ({setIsAdd}: INavbar) => {
           </div>
         {/* )} */}
       </div>
-			<Image alt="" src={menu} className="cursor-pointer flex md:hidden" onClick={toggleMenu}></Image>
+	<Image alt="" src={menu} className="cursor-pointer flex md:hidden" onClick={toggleMenu}></Image>
     </div>
   );
 };

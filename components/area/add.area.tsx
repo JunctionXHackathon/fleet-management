@@ -1,7 +1,7 @@
 import supabase from '@/supabase';
 import React, { useState } from 'react'
 import { Area } from './data';
-import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Input, Link, RadioGroup, Radio} from "@nextui-org/react";
+import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Input, RadioGroup, Radio} from "@nextui-org/react";
 
 
 interface Rectangles {
@@ -12,13 +12,11 @@ interface Rectangles {
 interface IAddRec{
         bounds:  number[][]; 
         setBounds: ([])=> void;
-        rectangles: Rectangles[]; 
-        setRectangles: ([]) => void;
         setIsAdd: (add: boolean) => void;
         isAdd: boolean
 }
 
-export default function AddArea({bounds, setIsAdd, isAdd, setBounds, rectangles, setRectangles}: IAddRec) {
+export default function AddArea({bounds, setIsAdd, isAdd, setBounds}: IAddRec) {
 
         const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
@@ -51,19 +49,9 @@ export default function AddArea({bounds, setIsAdd, isAdd, setBounds, rectangles,
 
         }
         async function createRec() {
-                console.log(bounds)
                 if(bounds.length == 2){
-                        const newRectangle = {
-                                id: rectangles.length + 10,
-                                bounds: bounds,
-                                color: 'black', 
-                              };
-                              setRectangles([...rectangles, newRectangle]);
                               insertArea()
-                              console.log(rectangles)
-                              
                 }
-                console.log(rectangles)
         }
 
   return (
@@ -102,6 +90,7 @@ export default function AddArea({bounds, setIsAdd, isAdd, setBounds, rectangles,
                         <RadioGroup
                                 label="Is this area forbidden?"
                                 color='warning'
+                                
                                 value={areaData.is_forbidden.toString()}
                                 onChange={(event)=>{
                                         const forb = event.target.value
