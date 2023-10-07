@@ -4,6 +4,8 @@ import Image from 'next/image'
 import drone from '@/assets/objects/drone.png'
 import { useState } from 'react'
 import Link from 'next/link'
+import yellowBack from '@/assets/icon/go-back-yellow.png'
+import darkbluebBack from '@/assets/icon/go-back-darkblue.png'
 import localFont from 'next/font/local'
 
 const aquire = localFont({
@@ -29,7 +31,7 @@ export default function Login() {
   }
 
   return (
-    <div className={`${aquire.className} signup flex gap-6 lg:flex-row flex-col-reverse items-center`}>
+    <div className={`${aquire.className} signup flex gap-6 lg:flex-row flex-col-reverse items-center lg:pl-44`}>
       <Image src={drone} className='drone lg:w-[500px]' alt={""}/>
       <form className='mb-32 md:mb-0 login flex flex-col gap-2 min-w-[460px] lg:min-w-[360px]'>
         <p className='font-semibold text-5xl'> LOG IN </p>
@@ -45,7 +47,7 @@ export default function Login() {
         <br />
         <div className='flex gap-2'>
           <button className='btn auth'> LOGIN </button>
-          {/*<Link href='/' className='btn auth' > RETURN </Link>*/}
+          <Link href='/' className='btn auth' > RETURN </Link>
         </div>
       </form>
     </div>

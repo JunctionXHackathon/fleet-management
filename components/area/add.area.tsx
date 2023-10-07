@@ -145,8 +145,8 @@ export default function AddArea({bounds, setIsAdd, isAdd, setBounds, rectangles,
                   />
                 </ModalBody>
                 <ModalFooter>
-               <Button className='yellow' onPress={()=>{createRec(); setBounds([]); setIsAdd(false); onClose}}>Add Area</Button>
                 <Button color='danger' onPress={()=>{setBounds([]); setIsAdd(false); onClose}}>Close</Button> 
+               <Button className='yellow' onPress={()=>{createRec(); setBounds([]); setIsAdd(false); onClose}}>Add Area</Button>
                 </ModalFooter>
               </>
             )}
