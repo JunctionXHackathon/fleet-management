@@ -24,8 +24,7 @@ export default function InfoModal(props: InfoModal) {
   return (
     <>
       <motion.div
-        className={`${aquire.className} flex w-full flex-col py-10 px-8 md:px-40
-          -mt-[600px]`}
+        className={`${aquire.className} flex w-full flex-col py-10 px-8 md:px-40`}
         variants={{
           hidden: {opacity: 0, size: -100},
           visible: {opacity: 1, size: 0}

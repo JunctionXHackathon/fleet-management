@@ -109,13 +109,12 @@ const Map = ({ setIsAdd, isAdd }: IMap) => {
         setRectangles={setRectangles}
       ></AddArea>
       <MapContainer
-        className={`h-[90%] z-0 w-full ${isShown && 'opacity-30'}`}
+        className={`h-[100%] z-0 w-full`}
         center={[51.505, -0.09]}
         zoom={13}
         scrollWheelZoom={false}
       >
         <TileLayer
-        
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
@@ -155,7 +154,11 @@ const Map = ({ setIsAdd, isAdd }: IMap) => {
           <Tooltip sticky>Armed UAV</Tooltip>
         </Marker>
       </MapContainer>
-      {isShown && <InfoModal onRemove={() => setIsShown(false)} />}
+      {isShown && (
+        <div className="absolute top-0 left-0 w-[100%] h-[100%] bg-[#0000006f] backdrop-blur-sm z-10">
+          <InfoModal onRemove={() => setIsShown(false)} />
+        </div>
+      )}
     </>
   );
 };
